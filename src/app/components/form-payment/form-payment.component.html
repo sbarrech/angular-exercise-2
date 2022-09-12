@@ -1,0 +1,42 @@
+<app-summary
+  [firstName]="passenger.firstName"
+  [lastName]="passenger.lastName"
+  [address]="passenger.address"
+  [email]="passenger.email"
+  [phoneNumber]="passenger.phoneNumber"
+></app-summary>
+
+<h1>Payment</h1>
+
+<form [formGroup]="form">
+  <p>
+    <label for="cardNumber">Card number </label>
+    <input
+      name="cardNumber"
+      formControlName="cardNumber"
+      [class.is-invalid]="form.get('cardNumber').errors"
+    />
+  </p>
+
+  <p>
+    <label for="expirationDate">Expiration date </label>
+    <input
+      name="expirationDate"
+      formControlName="expirationDate"
+      [class.is-invalid]="form.get('expirationDate').errors"
+    />
+  </p>
+
+  <p>
+    <label for="cva">CVA </label>
+    <input
+      name="cva"
+      formControlName="cva"
+      [class.is-invalid]="form.get('cva').errors"
+    />
+  </p>
+</form>
+
+<div class="controls">
+  <button [disabled]="form.invalid" (click)="displayAlert()">Continue</button>
+</div>

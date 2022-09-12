@@ -1,0 +1,66 @@
+<h1>Passenger details</h1>
+
+<form [formGroup]="form">
+  <p>
+    <label for="firstName">First name </label>
+    <input
+      name="firstName"
+      formControlName="firstName"
+      [class.is-invalid]="form.get('firstName').errors"
+    />
+  </p>
+
+  <p>
+    <label for="lastName">Last name </label>
+    <input
+      name="lastName"
+      formControlName="lastName"
+      [class.is-invalid]="form.get('lastName').errors"
+    />
+  </p>
+
+  <p>
+    <label for="address">Address </label>
+    <input
+      name="address"
+      formControlName="address"
+      [class.is-invalid]="form.get('address').errors"
+    />
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input
+      name="email"
+      formControlName="email"
+      [class.is-invalid]="form.get('email').errors"
+    />
+  </p>
+
+  <p>
+    <label for="phoneNumber">Phone number </label>
+    <input
+      name="phoneNumber"
+      formControlName="phoneNumber"
+      [class.is-invalid]="form.get('phoneNumber').errors"
+    />
+  </p>
+</form>
+
+<app-summary
+  [firstName]="formValues.firstName"
+  [lastName]="formValues.lastName"
+  [address]="formValues.address"
+  [email]="formValues.email"
+  [phoneNumber]="formValues.phoneNumber"
+></app-summary>
+
+<div class="controls">
+  <button
+    [disabled]="form.invalid"
+    [routerLink]="['/payment']"
+    [state]="formValues"
+  >
+    Continue
+  </button>
+</div>
